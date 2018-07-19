@@ -88,7 +88,15 @@ namespace CodeItAirLinesTest
         [TestMethod]
         public void TripTestMethodPilotAndPrisoner()
         {
-            Assert.AreEqual(fourTwo.Ride(pilot, prisoner), "Viagem de sucesso!");
+            try
+            {
+                fourTwo.Ride(pilot, prisoner);
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual(e.Message, "Viagem invalida.");
+            }
         }
 
         #endregion
@@ -130,7 +138,15 @@ namespace CodeItAirLinesTest
         [TestMethod]
         public void TripTestMethodChiefAndPrisoner()
         {
-            Assert.AreEqual(fourTwo.Ride(chief, prisoner), "Viagem de sucesso!");
+            try
+            {
+                fourTwo.Ride(chief, prisoner);
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual(e.Message, "Viagem invalida.");
+            }
         }
 
         #endregion

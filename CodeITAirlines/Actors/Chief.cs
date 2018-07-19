@@ -9,7 +9,7 @@ namespace CodeITAirlines.Actors
 
         public bool ValidatePassenger(IPassenger passenger)
         {
-            return !(passenger is Oficial);
+            return !(passenger is Oficial || passenger is Prisoner);
         }
     }
 }
