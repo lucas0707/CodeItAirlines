@@ -5,6 +5,6 @@ namespace CodeITAirlines.Context
 {
     public class Airport
     {
-        public ICollection<Actor> Actors { get; set; }
+        public ICollection<Person> PersonList { get; set; }
     }
 }

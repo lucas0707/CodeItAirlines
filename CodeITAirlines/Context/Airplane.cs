@@ -5,7 +5,7 @@ namespace CodeITAirlines.Context
 {
     public class Airplane
     {
-        public ICollection<Actor> Actors { get; set; }
+        public ICollection<Person> PersonList { get; set; }
 
     }
 }

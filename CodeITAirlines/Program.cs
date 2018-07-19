@@ -1,9 +1,9 @@
-﻿using CodeITAirlines.Actors;
+﻿using CodeITAirlines.Actions;
+using CodeITAirlines.Actors;
+using CodeITAirlines.Context;
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using CodeITAirlines.Actions;
-using CodeITAirlines.Context;
 
 namespace CodeITAirlines
 {
@@ -11,7 +11,7 @@ namespace CodeITAirlines
     {
         static void Main(string[] args)
         {
-            var validate = new Trip();
+            var trip = new Trip();
 
             var pilot = new Pilot();
             var oficialOne = new Oficial { Name = "Primeiro Oficial"};
@@ -21,10 +21,11 @@ namespace CodeITAirlines
             var attendantTwo = new Attendant { Name = "Segunda Comissaria" };
             var cop = new Cop();
             var prisoner = new Prisoner();
+            var fourTwo = new FourTwo();
 
             var airport = new Airport
             {
-                Actors = new List<Actor>
+                PersonList = new List<Person>
                 {
                     pilot,
                     oficialOne,
@@ -37,85 +38,97 @@ namespace CodeITAirlines
                 }
             };
 
-            var airplane = new Airplane {Actors = new List<Actor>()};
+            var airplane = new Airplane {PersonList = new List<Person>()};
 
-            validate.WriteAirport(airport);
+            trip.WriteAirport(airport);
 
+            fourTwo.Ride(pilot, chief);
             Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao aviao");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            //validate.ValidateTrip(pilot, attendantOne);
+            airport.PersonList.Remove(chief);
+            airplane.PersonList.Add(chief);
 
-            airport.Actors.Remove(chief);
-            airplane.Actors.Add(chief);
-
+            fourTwo.Ride(pilot);
             Console.WriteLine($"\n{pilot.Name} retorna ao aeroporto");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
+            fourTwo.Ride(cop, prisoner);
             Console.WriteLine($"\n{cop.Name} e {prisoner.Name} se dirigem ao aviao");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(cop);
-            airport.Actors.Remove(prisoner);
+            airport.PersonList.Remove(cop);
+            airport.PersonList.Remove(prisoner);
 
-            airplane.Actors.Add(cop);
-            airplane.Actors.Add(prisoner);
+            airplane.PersonList.Add(cop);
+            airplane.PersonList.Add(prisoner);
 
+            fourTwo.Ride(chief);
             Console.WriteLine($"\n{chief.Name} retorna ao aeroporto");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airplane.Actors.Remove(chief);
+            airplane.PersonList.Remove(chief);
 
+            fourTwo.Ride(pilot, oficialOne);
             Console.WriteLine($"\n{pilot.Name} e {oficialOne.Name} se dirigem ao aviao.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(oficialOne);
-            airplane.Actors.Add(oficialOne);
-
+            airport.PersonList.Remove(oficialOne);
+            airplane.PersonList.Add(oficialOne);
+            fourTwo.Ride(pilot);
             Console.WriteLine($"\n{pilot.Name} retorna ao aeroporto.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
+            fourTwo.Ride(pilot, oficialTwo);
             Console.WriteLine($"\n{pilot.Name} e {oficialTwo.Name} se dirigem ao aviao.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(oficialTwo);
-            airplane.Actors.Add(oficialTwo);
+            airport.PersonList.Remove(oficialTwo);
+            airplane.PersonList.Add(oficialTwo);
 
+            fourTwo.Ride(pilot);
             Console.WriteLine($"\n{pilot.Name} retorna ao aeroporto.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
+            fourTwo.Ride(pilot, chief);
             Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao aviao.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(pilot);
-            airplane.Actors.Add(pilot);
+            airport.PersonList.Remove(pilot);
+            airplane.PersonList.Add(pilot);
 
+            fourTwo.Ride(chief);
             Console.WriteLine($"\n{chief.Name} retorna ao aeroporto.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
+            fourTwo.Ride(chief, attendantOne);
             Console.WriteLine($"\n{chief.Name} e {attendantOne.Name} se dirigem ao aviao.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(attendantOne);
-            airplane.Actors.Add(attendantOne);
+            airport.PersonList.Remove(attendantOne);
+            airplane.PersonList.Add(attendantOne);
 
+            fourTwo.Ride(chief);
             Console.WriteLine($"\n{chief.Name} retorna ao aeroporto.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
+            fourTwo.Ride(chief, attendantTwo);
             Console.WriteLine($"\n{chief.Name} e {attendantTwo.Name} se dirigem ao aviao.");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            airport.Actors.Remove(attendantTwo);
-            airport.Actors.Remove(chief);
+            airport.PersonList.Remove(attendantTwo);
+            airport.PersonList.Remove(chief);
 
-            airplane.Actors.Add(attendantTwo);
-            airplane.Actors.Add(chief);
+            airplane.PersonList.Add(attendantTwo);
+            airplane.PersonList.Add(chief);
 
             Console.WriteLine($"\nTodos embarcaram!");
-            Thread.Sleep(3000);
+            Thread.Sleep(1500);
 
-            validate.WriteAirplane(airplane);
-            Thread.Sleep(3000);
+            trip.WriteAirplane(airplane);
+            Thread.Sleep(1500);
+
+            Console.ReadKey();
         }
     }
 }

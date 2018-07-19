@@ -6,6 +6,5 @@ namespace CodeITAirlines.Actions.Interface
     {
         void WriteAirport(Airport airport);
         void WriteAirplane(Airplane airplane);
-
     }
 }

@@ -1,25 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using CodeITAirlines.Actors;
+using CodeITAirlines.Actors.Interface;
 
 namespace CodeITAirlines.Context
 {
     public class FourTwo
     {
-        public FourTwo()
+        public IDriver Driver { get; set; }
+        public IPassenger Passenger { get; set; }
+
+        public string Ride (IDriver driver, IPassenger passenger)
         {
+            if (driver.ValidatePassenger(passenger) || passenger == null)
+            {
+                return "Viagem de sucesso!";
+            }
+
+            throw new Exception("Viagem invalida.");
         }
 
-        public Actor Driver { get; set; }
-        public Actor Passenger { get; set; }
-
-        public FourTwo Ride (FourTwo fourTwo, Actor driver, Actor passenger)
+        public string Ride(IDriver driver)
         {
-            fourTwo.Driver = driver;
-            fourTwo.Passenger = passenger;
-            return fourTwo;
+            return Ride(driver, null);
         }
-
     }
 }
