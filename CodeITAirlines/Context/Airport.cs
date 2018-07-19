@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CodeITAirlines.Context
 {
-    public class Context
+    public class Airport
     {
         public ICollection<Actor> Actors { get; set; }
     }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using CodeITAirlines.Actions;
+using CodeITAirlines.Context;
 
 namespace CodeITAirlines
 {
@@ -9,7 +11,7 @@ namespace CodeITAirlines
     {
         static void Main(string[] args)
         {
-            Trip validate = new Trip();
+            var validate = new Trip();
 
             var pilot = new Pilot();
             var oficialOne = new Oficial { Name = "Primeiro Oficial"};
@@ -20,7 +22,7 @@ namespace CodeITAirlines
             var cop = new Cop();
             var prisoner = new Prisoner();
 
-            var airport = new Context.Context
+            var airport = new Airport
             {
                 Actors = new List<Actor>
                 {
@@ -35,15 +37,14 @@ namespace CodeITAirlines
                 }
             };
 
-            var airplane = new Context.Context();
-            airplane.Actors = new List<Actor>();
+            var airplane = new Airplane {Actors = new List<Actor>()};
 
             validate.WriteAirport(airport);
 
             Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao aviao");
             Thread.Sleep(3000);
 
-            validate.ValidateTrip(pilot, attendantOne);
+            //validate.ValidateTrip(pilot, attendantOne);
 
             airport.Actors.Remove(chief);
             airplane.Actors.Add(chief);
@@ -115,55 +116,6 @@ namespace CodeITAirlines
 
             validate.WriteAirplane(airplane);
             Thread.Sleep(3000);
-        }
-    }
-
-    public interface ITrip
-    {
-        void WriteAirport(Context.Context airport);
-        void WriteAirplane(Context.Context airplane);
-
-    }
-
-    public class Trip : ITrip
-    {
-        public void WriteAirport(Context.Context airport)
-        {
-            Console.WriteLine($"\nEstao no aeroporto: ");
-            foreach (var item in airport.Actors)
-            {
-                Console.WriteLine("#" + item.Name);
-            }
-        }
-
-        public void WriteAirplane(Context.Context airplane)
-        {
-            Console.WriteLine($"\nEstao no aviao: ");
-            foreach (var item in airplane.Actors)
-            {
-                Console.WriteLine("#" + item.Name);
-            }
-        }
-
-        public void ValidateTrip(Actor driver, Actor passenger)
-        {
-            var valDriver = driver.GetType();
-            var valPassenger = passenger.GetType();
-
-            if (valDriver != typeof(Pilot) || valPassenger != typeof(Attendant))
-                return;
-
-            if (valDriver != typeof(Chief) || valPassenger != typeof(Oficial))
-                return;
-
-            if (valDriver != typeof(Cop) || valPassenger != typeof(Prisoner))
-            {
-                
-            }
-
-            Console.WriteLine($"\nViagem invalida!");
-            Console.OpenStandardError();
-
         }
     }
 }
