@@ -17,8 +17,8 @@ namespace CodeITAirlines
             var oficialOne = new Oficial { Name = "Primeiro Oficial"};
             var oficialTwo = new Oficial { Name = "Segundo Oficial" };
             var chief = new Chief();
-            var attendantOne = new Attendant { Name = "Primeira Comissaria" };
-            var attendantTwo = new Attendant { Name = "Segunda Comissaria" };
+            var attendantOne = new Attendant { Name = "Primeira Comissária" };
+            var attendantTwo = new Attendant { Name = "Segunda Comissária" };
             var cop = new Cop();
             var prisoner = new Prisoner();
             var fourTwo = new FourTwo();
@@ -43,18 +43,18 @@ namespace CodeITAirlines
             trip.WriteAirport(airport);
 
             fourTwo.Ride(pilot, chief);
-            Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao aviao");
+            Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(chief);
             airplane.PersonList.Add(chief);
 
             fourTwo.Ride(pilot);
-            Console.WriteLine($"\n{pilot.Name} retorna ao aeroporto");
+            Console.WriteLine($"\n{pilot.Name} retorna ao aeroporto.");
             Thread.Sleep(1500);
 
             fourTwo.Ride(cop, prisoner);
-            Console.WriteLine($"\n{cop.Name} e {prisoner.Name} se dirigem ao aviao");
+            Console.WriteLine($"\n{cop.Name} e {prisoner.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(cop);
@@ -64,13 +64,13 @@ namespace CodeITAirlines
             airplane.PersonList.Add(prisoner);
 
             fourTwo.Ride(chief);
-            Console.WriteLine($"\n{chief.Name} retorna ao aeroporto");
+            Console.WriteLine($"\n{chief.Name} retorna ao aeroporto.");
             Thread.Sleep(1500);
 
             airplane.PersonList.Remove(chief);
 
             fourTwo.Ride(pilot, oficialOne);
-            Console.WriteLine($"\n{pilot.Name} e {oficialOne.Name} se dirigem ao aviao.");
+            Console.WriteLine($"\n{pilot.Name} e {oficialOne.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(oficialOne);
@@ -80,7 +80,7 @@ namespace CodeITAirlines
             Thread.Sleep(1500);
 
             fourTwo.Ride(pilot, oficialTwo);
-            Console.WriteLine($"\n{pilot.Name} e {oficialTwo.Name} se dirigem ao aviao.");
+            Console.WriteLine($"\n{pilot.Name} e {oficialTwo.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(oficialTwo);
@@ -91,7 +91,7 @@ namespace CodeITAirlines
             Thread.Sleep(1500);
 
             fourTwo.Ride(pilot, chief);
-            Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao aviao.");
+            Console.WriteLine($"\n{pilot.Name} e {chief.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(pilot);
@@ -102,7 +102,7 @@ namespace CodeITAirlines
             Thread.Sleep(1500);
 
             fourTwo.Ride(chief, attendantOne);
-            Console.WriteLine($"\n{chief.Name} e {attendantOne.Name} se dirigem ao aviao.");
+            Console.WriteLine($"\n{chief.Name} e {attendantOne.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(attendantOne);
@@ -113,7 +113,7 @@ namespace CodeITAirlines
             Thread.Sleep(1500);
 
             fourTwo.Ride(chief, attendantTwo);
-            Console.WriteLine($"\n{chief.Name} e {attendantTwo.Name} se dirigem ao aviao.");
+            Console.WriteLine($"\n{chief.Name} e {attendantTwo.Name} se dirigem ao avião.");
             Thread.Sleep(1500);
 
             airport.PersonList.Remove(attendantTwo);

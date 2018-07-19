@@ -69,7 +69,7 @@ namespace CodeItAirLinesTest
             }
             catch (Exception e)
             {
-                Assert.AreEqual(e.Message, "Viagem invalida.");
+                Assert.AreEqual(e.Message, "Viagem inválida.");
             }
         }
 
@@ -95,7 +95,7 @@ namespace CodeItAirLinesTest
             }
             catch (Exception e)
             {
-                Assert.AreEqual(e.Message, "Viagem invalida.");
+                Assert.AreEqual(e.Message, "Viagem inválida.");
             }
         }
 
@@ -119,7 +119,7 @@ namespace CodeItAirLinesTest
             }
             catch (Exception e)
             {
-                Assert.AreEqual(e.Message, "Viagem invalida.");
+                Assert.AreEqual(e.Message, "Viagem inválida.");
             }
         }
 
@@ -145,7 +145,7 @@ namespace CodeItAirLinesTest
             }
             catch (Exception e)
             {
-                Assert.AreEqual(e.Message, "Viagem invalida.");
+                Assert.AreEqual(e.Message, "Viagem inválida.");
             }
         }
 

@@ -5,7 +5,7 @@ namespace CodeITAirlines.Actors
 {
     public class Chief : Person, IDriver, IPassenger
     {
-        public override string Name { get; set; } = "Chefe de Servico de Bordo";
+        public override string Name { get; set; } = "Chefe de Serviço de Bordo";
 
         public bool ValidatePassenger(IPassenger passenger)
         {

@@ -10,7 +10,7 @@ namespace CodeITAirlines.Actions
     {
         public void WriteAirport(Airport airport)
         {
-            Console.WriteLine($"Estao no aeroporto: ");
+            Console.WriteLine($"Estão no aeroporto: ");
             foreach (var item in airport.PersonList)
             {
                 Console.WriteLine("#" + item.Name);
@@ -19,7 +19,7 @@ namespace CodeITAirlines.Actions
 
         public void WriteAirplane(Airplane airplane)
         {
-            Console.WriteLine($"Estao no aviao: ");
+            Console.WriteLine($"Estão no aviao: ");
             foreach (var item in airplane.PersonList)
             {
                 Console.WriteLine("#" + item.Name);

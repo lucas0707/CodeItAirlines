@@ -16,7 +16,7 @@ namespace CodeITAirlines.Context
                 return "Viagem de sucesso!";
             }
 
-            throw new Exception("Viagem invalida.");
+            throw new Exception("Viagem inválida.");
         }
 
         public string Ride(IDriver driver)
